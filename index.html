@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    /* ===============================
+        GOOGLE FONTS
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ===============================
+        RESET
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0B0B0B;
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+
+/* ===============================
+        NAVBAR
+================================ */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:95px;
+
+    padding:0 70px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(10,10,10,.98),
+        rgba(25,25,25,.95),
+        rgba(10,10,10,.98)
+    );
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(212,175,55,.35);
+
+    box-shadow:
+        0 12px 40px rgba(0,0,0,.45);
+
+    z-index:9999;
+}
+
+/* animated gold line */
+
+.navbar::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:2px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #B8860B,
+        #F4D67A,
+        #B8860B,
+        transparent
+    );
+}
+
+/* ===============================
+        LOGO
+================================ */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.bow{
+
+    height:58px;
+
+    transition:.4s;
+
+}
+
+.name{
+
+    height:36px;
+
+    transition:.4s;
+
+}
+
+.logo:hover .bow{
+
+    transform:rotate(-5deg) scale(1.08);
+
+}
+
+.logo:hover .name{
+
+    transform:translateX(5px);
+
+}
+
+/* ===============================
+        NAV LINKS
+================================ */
+
+.nav-links{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:42px;
+
+}
+
+.nav-links a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    letter-spacing:1px;
+
+    position:relative;
+
+    transition:.35s;
+
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:50%;
+
+    width:0;
+
+    height:2px;
+
+    background:#D4AF37;
+
+    transform:translateX(-50%);
+
+    transition:.35s;
+
+}
+
+.nav-links a:hover{
+
+    color:#F2D57A;
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
+/* ===============================
+        BUTTON
+================================ */
+
+.consult-btn{
+
+    text-decoration:none;
+
+    color:#111;
+
+    font-weight:600;
+
+    padding:14px 30px;
+
+    border-radius:40px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #8A6A16,
+        #C89B3C,
+        #F3D57B
+    );
+
+    box-shadow:
+        0 8px 25px rgba(201,162,39,.35);
+
+    transition:.35s;
+
+}
+
+.consult-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 16px 40px rgba(201,162,39,.55);
+
+}
+
+/* ===============================
+        MOBILE MENU
+================================ */
+
+.menu-toggle{
+
+    display:none;
+
+    font-size:30px;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+/* ===============================
+        HERO
+================================ */
+
+.hero{
+
+    min-height:100vh;
+
+    padding:140px 8% 80px;
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    align-items:center;
+
+    gap:60px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top right,
+    rgba(212,175,55,.12),
+    transparent 35%),
+
+    radial-gradient(circle at bottom left,
+    rgba(255,255,255,.04),
+    transparent 30%),
+
+    linear-gradient(
+        180deg,
+        #141414,
+        #0B0B0B
+    );
+
+}
+
+/* decorative glow */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+
+    height:650px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(212,175,55,.18),
+    transparent 70%);
+
+    top:-250px;
+
+    right:-220px;
+
+}
+
+.hero-left{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.hero-right{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+    /* ===============================
+        HERO CONTENT
+================================ */
+
+.tag{
+
+    display:inline-block;
+
+    padding:10px 22px;
+
+    border:1px solid rgba(212,175,55,.35);
+
+    border-radius:40px;
+
+    color:#D4AF37;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:28px;
+
+    background:rgba(212,175,55,.05);
+
+}
+
+.hero h1{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:82px;
+
+    line-height:0.95;
+
+    font-weight:700;
+
+    margin-bottom:30px;
+
+    color:#fff;
+
+}
+
+.gold-divider{
+
+    width:170px;
+
+    height:4px;
+
+    border-radius:50px;
+
+    margin-bottom:35px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #C89B3C,
+        #FFE29A,
+        #C89B3C,
+        transparent
+    );
+
+}
+
+.hero p{
+
+    color:#D2D2D2;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    max-width:620px;
+
+    margin-bottom:45px;
+
+}
+
+/* ===============================
+        BUTTONS
+================================ */
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    margin-bottom:70px;
+
+}
+
+.btn-primary{
+
+    text-decoration:none;
+
+    padding:18px 38px;
+
+    border-radius:40px;
+
+    background:linear-gradient(
+        135deg,
+        #8B6914,
+        #C89B3C,
+        #F3D57B
+    );
+
+    color:#111;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    box-shadow:0 12px 30px rgba(201,162,39,.35);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 18px 40px rgba(201,162,39,.5);
+
+}
+
+.btn-secondary{
+
+    text-decoration:none;
+
+    padding:18px 38px;
+
+    border-radius:40px;
+
+    border:2px solid #C89B3C;
+
+    color:#C89B3C;
+
+    transition:.35s;
+
+}
+
+.btn-secondary:hover{
+
+    background:#C89B3C;
+
+    color:#111;
+
+}
+
+/* ===============================
+        STATISTICS
+================================ */
+
+.stats{
+
+    display:flex;
+
+    gap:22px;
+
+}
+
+.stat-card{
+    flex: 1;
+    padding: 30px;
+    border-radius: 22px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.06),
+        rgba(255,255,255,0.02)
+    );
+
+    border: 1px solid rgba(212,175,55,0.25);
+    backdrop-filter: blur(12px);
+
+    text-align: center;
+    transition: all 0.35s ease;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.35),
+        inset 0 1px 1px rgba(255,255,255,0.08);
+}
+
+.stat-card:hover{
+    transform: translateY(-10px);
+    border-color: #D4AF37;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.45),
+        0 0 20px rgba(212,175,55,0.25);
+
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.03)
+    );
+}
+
+.stat-card h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:48px;
+
+    color:#F4D67A;
+
+    margin-bottom:10px;
+
+}
+
+.stat-card span{
+
+    color:#BFBFBF;
+
+    font-size:15px;
+
+}
+
+/* ===============================
+        RIGHT IMAGE
+================================ */
+
+.hero-circle{
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+    rgba(212,175,55,.18),
+    transparent 70%);
+
+    filter:blur(10px);
+
+}
+
+.hero-image{
+
+    position:relative;
+
+    width:420px;
+
+    z-index:2;
+
+    animation:float 5s ease-in-out infinite;
+
+    filter:drop-shadow(0 0 40px rgba(212,175,55,.3));
+
+}
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+}
+
+/* ===============================
+      SCROLL INDICATOR
+================================ */
+
+.scroll-indicator{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:35px;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#C89B3C;
+
+    letter-spacing:3px;
+
+    font-size:12px;
+
+}
+
+.mouse{
+
+    width:28px;
+
+    height:45px;
+
+    border:2px solid #C89B3C;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.wheel{
+
+    width:5px;
+
+    height:10px;
+
+    background:#C89B3C;
+
+    border-radius:20px;
+
+    margin-top:8px;
+
+    animation:scroll 2s infinite;
+
+}
+
+@keyframes scroll{
+
+0%{
+
+opacity:0;
+
+transform:translateY(0);
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+}
+
+/* ===============================
+      MOBILE
+================================ */
+
+@media(max-width:1000px){
+
+.hero{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+padding-top:150px;
+
+}
+
+.hero-right{
+
+margin-top:60px;
+
+}
+
+.hero h1{
+
+font-size:58px;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+.stats{
+
+flex-direction:column;
+
+}
+
+.nav-links{
+
+display:none;
+
+}
+
+.consult-btn{
+
+display:none;
+
+}
+
+.menu-toggle{
+
+display:block;
+
+}
+
+.hero-image{
+
+width:300px;
+
+}
+
+}
+</style>
+</head>
+<body>
+<!-- ==========================
+        NAVBAR
+=========================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <img src="bow_logo.png" class="bow" alt="Bow Logo">
+
+        <img src="Name_logo.png" class="name" alt="Verma Legal">
+
+    </div>
+
+    <ul class="nav-links" id="navMenu">
+
+        <li><a href="#">Home</a></li>
+
+        <li><a href="#">About</a></li>
+
+        <li><a href="#">Practice Areas</a></li>
+
+        <li><a href="#">Our Team</a></li>
+
+        <li><a href="#">Testimonials</a></li>
+
+        <li><a href="#">Contact</a></li>
+
+    </ul>
+
+    <a href="#" class="consult-btn">
+
+        Free Consultation
+
+    </a>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+
+        ☰
+
+    </div>
+
+</nav>
+
+
+<!-- ==========================
+          HERO SECTION
+=========================== -->
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <span class="tag">
+
+            TRUSTED LEGAL EXCELLENCE
+
+        </span>
+
+        <h1>
+
+            Justice.<br>
+
+            Integrity.<br>
+
+            Results.
+
+        </h1>
+
+        <div class="gold-divider"></div>
+
+        <p>
+
+            Verma Legal Associates delivers strategic legal
+            solutions for individuals, families and businesses.
+            Our commitment is to protect your rights with
+            professionalism, integrity and dedication.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#" class="btn-primary">
+
+                Book Consultation
+
+            </a>
+
+            <a href="#" class="btn-secondary">
+
+                Practice Areas
+
+            </a>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-card">
+
+                <h2>15+</h2>
+
+                <span>Years Experience</span>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2>500+</h2>
+
+                <span>Cases Handled</span>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2>98%</h2>
+
+                <span>Client Satisfaction</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <div class="hero-circle"></div>
+
+        <!-- Replace with your own transparent image -->
+
+        <img src="lady-justice.png"
+
+             class="hero-image"
+
+             alt="Lady Justice">
+
+    </div>
+
+</section>
+
+
+<!-- ==========================
+      SCROLL INDICATOR
+=========================== -->
+
+<div class="scroll-indicator">
+
+    <span>SCROLL</span>
+
+    <div class="mouse">
+
+        <div class="wheel"></div>
+
+    </div>
+
+</div>
+</body>
+</html>
